@@ -12,4 +12,19 @@ public class FoodServiceImpl implements FoodService{
     public void saveFood(Food food){
         foodRepository.save(food);
     }
+
+    @Override
+    public Food getFoodById(long id) {
+        Optional < Food > optional = foodRepository.findById(id);
+        if (optional.isPresent()) {
+            return optional.get();
+        } else {
+            throw new RuntimeException("Food not found with id: " + id);
+        }
+    }
+
+    @Override
+    public void deleteFoodById(long id) {
+        this.foodRepository.deleteById(id);
+    }
 }
