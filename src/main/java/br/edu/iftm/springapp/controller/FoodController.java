@@ -21,4 +21,10 @@ public class FoodController{
         foodService.saveFood(food);
         return "redirect:/food";
     }
+
+    @GetMapping("/food/delete/{id}")
+    public String delete(@PathVariable Long id){
+        foodService.deleteFoodById(id);
+        return "redirect:/food";
+    }
 }
