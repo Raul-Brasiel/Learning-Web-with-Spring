@@ -27,4 +27,11 @@ public class FoodController{
         foodService.deleteFoodById(id);
         return "redirect:/food";
     }
+
+    @GetMapping("/food/edit/{id}")
+    public String edit(@PathVariable Long id, Model model){
+        Food food = foodService.getFoodById(id);
+        model.addAttribute("food", food);
+        return "food/edit";
+    }
 }
