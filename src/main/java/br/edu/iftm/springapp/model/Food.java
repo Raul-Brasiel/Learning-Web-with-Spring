@@ -5,12 +5,15 @@ public class Food{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Size(min = 3, max  = 50, message = "Nome deve conter pelo menos 3 caracteres")
+    @NotBlanck(message = "Nome e um campo obrigatorio")
     @Column(name = "name", nullable = false)
     private String name;
     
     @Column(name = "description")
     private String description;
 
+    @NotNull(message = "Informe uma quantidade de kcal valida")
     @Column(name = "kcal")
     private Float kcal;
 

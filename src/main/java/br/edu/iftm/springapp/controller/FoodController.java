@@ -16,8 +16,15 @@ public class FoodController{
         return "food/create";
     }
 
-    @GetMapping("/food/save")
-    public String save(@ModelAttribute("food") Food food){
+    @PostMapping("/food/save")
+    public String save(@ModelAttribute @Valid Food food, BindingResult result, Model model) {
+
+        System.out.println(food);
+        if (result.hasErrors()) {
+            model.addAttribute("food", food);
+            return "food/form";
+        }
+
         foodService.saveFood(food);
         return "redirect:/food";
     }
