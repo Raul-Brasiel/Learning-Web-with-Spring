@@ -1,3 +1,5 @@
+package br.edu.iftm.springapp.impl;
+
 @FoodService
 public class FoodServiceImpl implements FoodService{
     @Autowired
