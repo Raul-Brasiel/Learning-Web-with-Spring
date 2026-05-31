@@ -32,7 +32,7 @@ public class SecurityConfig {
                 .requestMatchers("/food/*").hasAuthority("Admin")
                 .anyRequest().authenticated())
                 .formLogin(login -> login
-                        .defaultSuccessUrl("/", true))
+                        .defaultSuccessUrl("/food", true))
                 .logout(logout -> logout
                         .logoutUrl("/logout"))
                 .exceptionHandling(handling -> handling
